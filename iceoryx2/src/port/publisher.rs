@@ -18,7 +18,7 @@
 //! use iceoryx2::prelude::*;
 //!
 //! # fn main() -> Result<(), Box<dyn std::error::Error>> {
-//! let node = NodeBuilder::new().create::<zero_copy::Service>()?;
+//! let node = NodeBuilder::new().create::<ipc::Service>()?;
 //! let service = node.service_builder(&"My/Funk/ServiceName".try_into()?)
 //!     .publish_subscribe::<u64>()
 //!     .open_or_create()?;
@@ -61,7 +61,7 @@
 //! use iceoryx2::prelude::*;
 //!
 //! # fn main() -> Result<(), Box<dyn std::error::Error>> {
-//! let node = NodeBuilder::new().create::<zero_copy::Service>()?;
+//! let node = NodeBuilder::new().create::<ipc::Service>()?;
 //! let service = node.service_builder(&"My/Funk/ServiceName".try_into()?)
 //!     .publish_subscribe::<[usize]>()
 //!     .open_or_create()?;
@@ -768,7 +768,7 @@ impl<Service: service::Service, Payload: Debug + Sized, UserHeader: Debug>
     /// ```
     /// use iceoryx2::prelude::*;
     /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
-    /// # let node = NodeBuilder::new().create::<zero_copy::Service>()?;
+    /// # let node = NodeBuilder::new().create::<ipc::Service>()?;
     /// #
     /// # let service = node.service_builder(&"My/Funk/ServiceName".try_into()?)
     /// #     .publish_subscribe::<u64>()
@@ -803,7 +803,7 @@ impl<Service: service::Service, Payload: Debug + Sized, UserHeader: Debug>
     /// ```
     /// use iceoryx2::prelude::*;
     /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
-    /// # let node = NodeBuilder::new().create::<zero_copy::Service>()?;
+    /// # let node = NodeBuilder::new().create::<ipc::Service>()?;
     /// #
     /// # let service = node.service_builder(&"My/Funk/ServiceName".try_into()?)
     /// #     .publish_subscribe::<u64>()
@@ -859,7 +859,7 @@ impl<Service: service::Service, Payload: Default + Debug + Sized, UserHeader: De
     /// ```
     /// use iceoryx2::prelude::*;
     /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
-    /// # let node = NodeBuilder::new().create::<zero_copy::Service>()?;
+    /// # let node = NodeBuilder::new().create::<ipc::Service>()?;
     /// #
     /// # let service = node.service_builder(&"My/Funk/ServiceName".try_into()?)
     /// #     .publish_subscribe::<u64>()
@@ -901,7 +901,7 @@ impl<Service: service::Service, Payload: Default + Debug, UserHeader: Debug>
     /// ```
     /// use iceoryx2::prelude::*;
     /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
-    /// # let node = NodeBuilder::new().create::<zero_copy::Service>()?;
+    /// # let node = NodeBuilder::new().create::<ipc::Service>()?;
     /// #
     /// # let service = node.service_builder(&"My/Funk/ServiceName".try_into()?)
     /// #     .publish_subscribe::<[u64]>()
@@ -942,7 +942,7 @@ impl<Service: service::Service, Payload: Debug, UserHeader: Debug>
     /// ```
     /// use iceoryx2::prelude::*;
     ///
-    /// # let node = NodeBuilder::new().create::<zero_copy::Service>()?;
+    /// # let node = NodeBuilder::new().create::<ipc::Service>()?;
     /// #
     /// # let service = node.service_builder(&"My/Funk/ServiceName".try_into()?)
     /// #     .publish_subscribe::<[usize]>()
