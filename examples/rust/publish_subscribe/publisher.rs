@@ -136,15 +136,17 @@ fn main_process(shared_state: &SharedProcessState) -> Result<(), Box<dyn std::er
     let publisher = service.publisher_builder().create()?;
 
     loop {
+        node.wait(Duration::from_millis(500));
         shared_state.next_cycle();
+
         shared_state.data().counter += 1;
+        publisher.send_copy(shared_state.data().counter)?;
 
         println!(
             "pid: {}, counter {} - send data",
             my_pid,
             shared_state.data().counter
         );
-        publisher.send_copy(shared_state.data().counter)?;
         std::thread::sleep(Duration::from_millis(500));
     }
 }
