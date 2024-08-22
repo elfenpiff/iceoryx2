@@ -15,6 +15,7 @@ use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
 
 use iceoryx2::prelude::*;
 use iceoryx2_bb_container::semantic_string::*;
+use iceoryx2_bb_log::{set_log_level, LogLevel};
 use iceoryx2_bb_posix::process::{Process, ProcessId};
 use iceoryx2_cal::dynamic_storage::posix_shared_memory::*;
 use iceoryx2_cal::named_concept::*;
@@ -152,6 +153,7 @@ fn main_process(shared_state: &SharedProcessState) -> Result<(), Box<dyn std::er
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+    set_log_level(LogLevel::Debug);
     let storage = Builder::new(&FileName::new(b"indestructible_process_state").unwrap())
         .open_or_create(SharedProcessState::new())
         .unwrap();

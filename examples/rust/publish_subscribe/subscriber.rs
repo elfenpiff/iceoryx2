@@ -12,10 +12,12 @@
 
 use core::time::Duration;
 use iceoryx2::prelude::*;
+use iceoryx2_bb_log::{set_log_level, LogLevel};
 
 const CYCLE_TIME: Duration = Duration::from_millis(100);
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+    set_log_level(LogLevel::Debug);
     let node = NodeBuilder::new().create::<ipc::Service>()?;
 
     let service = node
