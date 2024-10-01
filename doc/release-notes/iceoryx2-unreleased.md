@@ -11,7 +11,7 @@
     conflicts when merging.
 -->
 
-* Example text [#1](https://github.com/eclipse-iceoryx/iceoryx2/issues/1)
+* Add Event-Multiplexer `WaitSet` [#390](https://github.com/eclipse-iceoryx/iceoryx2/issues/390)
 
 ### Bugfixes
 
@@ -29,7 +29,7 @@
     conflicts when merging.
 -->
 
-* Example text [#1](https://github.com/eclipse-iceoryx/iceoryx2/issues/1)
+* Rename `NodeEvent` into `WaitEvent` [#390](https://github.com/eclipse-iceoryx/iceoryx2/issues/390)
 
 ### Workflow
 
@@ -51,12 +51,16 @@
 
 ### API Breaking Changes
 
-1. Example
+1. Renamed `NodeEvent` into `WaitEvent`
 
    ```rust
    // old
-   let fuu = hello().is_it_me_you_re_looking_for()
+   while node.wait(CYCLE_TIME) != NodeEvent::TerminationRequest {
+    // ...
+   }
 
    // new
-   let fuu = hypnotoad().all_glory_to_the_hypnotoad()
+   while node.wait(CYCLE_TIME) != WaitEvent::TerminationRequest {
+    // ...
+   }
    ```
