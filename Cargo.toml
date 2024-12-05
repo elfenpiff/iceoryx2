@@ -40,7 +40,7 @@ keywords = ["zero-copy", "communication", "ipc", "publish-subscribe", "request-r
 license = "MIT OR Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/eclipse-iceoryx/iceoryx2"
-rust-version = "1.78"
+rust-version = "1.75"
 version = "0.4.1"
 
 [workspace.dependencies]
@@ -75,6 +75,8 @@ anyhow = { version = "1.0.86" }
 bindgen = { version = "0.69.4" }
 bitflags = { version = "2.5.0" }
 cargo_metadata = { version = "0.18.1" }
+# required to stick to version 1.75, with cargo_platform=0.1.9 1.78 is required
+cargo_platform = { version = "0.1.8" }
 cbindgen = { version = "0.26.0" }
 cc = { version = "1.0.98" }
 cdr = { version = "0.2.4" }
